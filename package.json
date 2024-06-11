@@ -1,12 +1,27 @@
 {
-  "name": "node-testing2-project",
+  "name": "rest-api-project",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "rollback": "knex migrate:rollback --env development",
+    "migrate": "knex migrate:latest --env development",
+    "seed": "knex seed:run --env development",
+    "test": "cross-env NODE_ENV=testing jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bloominstituteoftechnology/node-testing2-project.git"
+  "dependencies": {
+    "express": "^4.19.2",
+    "knex": "0.95.15",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "nodemon": "^2.0.0",
+    "cross-env": "^7.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
